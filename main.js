@@ -1,84 +1,121 @@
 // Task-1
-
-// While -1
-let A = 45;
-let B = 14;
-while( B <= A ){
-    console.log(B);
-    B++
+let N = 15;
+function printLog(N){
+    
+    if( N > 1){
+        printLog(N-1)
+    }
+    console.log("Hello World", N);
 }
-
-// While-2
-let joylar = 0;
-let A_1 = 12;
-let B_1 = 5;
-while(A_1 >= B_1){
-    A_1 -= B_1
-    joylar++
-}
-console.log(joylar);
-
-// While-3
-let N = 416;
-let K = 15;
-let bolinganSon = 0;
-while(N >= K){
-    N -= K;
-    bolinganSon++
-}
-console.log("Bo\'lingan son:", bolinganSon, "qoldiq:", N);
-
-// While-4
-let daraja = 1;
-let n = 27;
-while(daraja < n){
-    daraja *= 3;
-}
-if (daraja == n) {
-    console.log('ok');
-}else(
-    console.log('no')
-)
+printLog(N);
 
 // Task-2
-let num = prompt('Son kiriting:', 1);
-num -= 0;
-switch (num) {
-    case 1: alert("Yanvar")
-        break;
-    case 2: alert("Fevral")
-        break;
-    case 3:alert("Mart")
-        break;
-    case 4:alert("Aprel")
-        break;
-    case 5:alert("May")
-        break;
-    case 6:alert("Iyun")
-        break;
-    case 7:alert("Iyul")
-        break;
-    case 8:alert("Avgust")
-        break;
-    case 9:alert("Sentabr")
-        break;
-    case 10:alert("Oktabr")
-        break;
-    case 12:alert("Noyabr")
-        break;
-    case 12:alert("Dekabr")
-        break;       
-    default: alert("Bunday oy yoq")
-        break;
+function factorialValue(num){
+    if(num === 0 ){
+        return 1;
+    }else{
+        return num * factorialValue( num - 1 );
+    }
 }
 
-// Task-3
-let sum = 0;
-let raqam = 0;
+console.log(factorialValue(7));
 
-do{
-    raqam++
-    sum += raqam
-}while( raqam <= 20)
-console.log(sum);
+// Task-3
+function summaValue(num){
+    if(num === 0){
+        return 0;
+    }else{
+        return num + summaValue(num - 1)
+    }
+}
+
+console.log(summaValue(10));
+
+// Task-4
+function evenNumberSumma(num){
+    if( num === 0){
+        return 0 ;
+    }
+    if(num % 2 == 0 && num > 0){
+        return num + evenNumberSumma(num - 2)
+    }else{
+        num--;
+        return num + evenNumberSumma(num - 2)
+    }
+}
+console.log(evenNumberSumma(8));
+
+// Task-5
+function oddNumberValue(num){
+    if( num === 1){
+        return 1;
+    }
+    if(num % 2 == 1){
+        return num + evenNumberSumma(num - 2)
+    }else{
+        return num + evenNumberSumma(num - 1)
+    }
+}
+console.log(oddNumberValue(12)); 
+
+// Task-6, Task-8
+let student = {
+    firstName: "Jumanazar ",
+    lastName: "Yusupov ",
+    age: 19,
+    group: "N54",
+    rating: {
+        month_1: 91,
+        month_2: 100,
+        month_3: 90, 
+    },
+    salomlashish: function(){
+        console.log("Hello I'm " + this.firstName + this.lastName + "I'm " + this.age +
+            "my rating " + this.rating.month_2 + "my group " + this.group
+        );
+    }
+}
+student.salomlashish();
+
+// Task-7, Task-8
+let myNotebook = {
+    brand: "acer",
+    windows: "Windows 11 pro",
+    memory: 1000,
+    ability: function(){
+        console.log("My laptop brand is " + this.brand);
+    }
+}
+myNotebook.ability();
+
+// Task-9
+function Student(name, age, lang, rating){
+    this.name = name;
+    this.age = age;
+    this.lang = lang;
+    this.rating = rating;
+}
+
+const badStudent = new Student("John", 20, "eng", 65);
+const middleStudent = new Student("Jack", 22, "uz", 80);
+const goodStudent = new Student("Tom", 19, "rus", 95);
+console.log(badStudent);
+console.log(goodStudent);
+console.log(middleStudent);
+
+function Person(name, age, isMarried, jobs){
+    this.name = name;
+    this.age = age;
+    this.isMarried = isMarried;
+    this.jobs = jobs;
+}
+
+const anvar = new Person("Anvar", 25, true, "developer");
+const bobur = new Person("Bobur", 24, false, "student");
+const rustam = new Person("Rustam", 26, false, "teacher")
+console.log(anvar);
+console.log(bobur);
+console.log(rustam);
+
+
 
